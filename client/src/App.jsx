@@ -11,6 +11,7 @@ import {
 import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
+import { UserContextProvider } from "./UserContext";
 
 function App() {
   const Layout = () => {
@@ -42,7 +43,11 @@ function App() {
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <UserContextProvider>
+      <RouterProvider router={router} />;
+    </UserContextProvider>
+  );
 }
 
 export default App;
