@@ -26,19 +26,27 @@ const Header = () => {
     <div>
       <header>
         <Link to="/" className="logo">
-          My Blog
+          StorySphere
         </Link>
         <nav>
           {username && (
             <>
-              <Link to="/create">Create New Post</Link>
-              <a onClick={logout}>Logout</a>
+              <Link to="/create" className="button-34" role="button">
+                Create New Post
+              </Link>
+              <a onClick={logout} className="button-34" role="button">
+                Logout
+              </a>
             </>
           )}
           {!username && (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/register">Register</Link>
+              <Link to="/login" className="button-34" role="button">
+                Login
+              </Link>
+              <Link to="/register" className="button-34" role="button">
+                Register
+              </Link>
             </>
           )}
         </nav>

@@ -1,32 +1,27 @@
 import React from "react";
-
-const Post = () => {
+import { Link } from "react-router-dom";
+import { formatISO9075 } from "date-fns";
+import Container from "react-bootstrap/Container";
+const Post = ({ _id, title, summary, cover, content, createdAt, author }) => {
   return (
     <div>
       <div className="post">
         <div className="image">
-          <img
-            src="https://techcrunch.com/wp-content/uploads/2022/09/rl-launch.jpg?w=990&crop=1"
-            alt=""
-          />
+          <Link to={`/post/${_id}`}>
+            <img src={"http://localhost:4000/" + cover} alt="" />
+          </Link>
         </div>
         <div className="texts">
-          <h2>
-            Space Force tees up new ‘responsive space’ mission from Rocket Lab
-            and True Anomaly
-          </h2>
+          <Link to={`/post/${_id}`}>
+            <h2>{title}</h2>
+          </Link>
           <p className="info">
             <a href="" className="author">
-              Abhishek Rai
+              {author ? author.username : "Unkown"}
             </a>
-            <time>2024-5-12 11:47</time>
+            <time>{formatISO9075(new Date(createdAt))}</time>
           </p>
-          <p className="summary">
-            Rocket Lab and True Anomaly will attempt to deliver and operate
-            space hardware for the military under intentionally tight time
-            frames, as part of the Space Force’s push to solicit “tactically
-            responsive” space capabilities from commercial companies.
-          </p>
+          <p className="summary">{summary}</p>
         </div>
       </div>
     </div>
