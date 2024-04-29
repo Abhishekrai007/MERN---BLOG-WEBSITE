@@ -189,6 +189,26 @@ a svg {
   height: 20px;
 }
 
+@media (max-width: 700px) {
+  header {
+    padding: 0px;
+  }
+
+  header nav {
+    gap: 9px;
+  }
+
+  div.post {
+    max-height: 40rem;
+  }
+  div.texts {
+    padding: 0 10px;
+  }
+  p.summary {
+    font-size: 19px;
+  }
+}
+
 /* ========================== */
 
 /* CSS */
