@@ -21,7 +21,6 @@ mongoose.connect("mongodb+srv://blog:abcdmnopxyz@cluster0.zzaqtkt.mongodb.net/?r
 app.post("/register", async (req, res) => {
     const { username, password } = req.body;
     try {
-        res.json({ requestData: { username, password } })
         const userDoc = await User.create({
             username, password: bcrypt.hashSync(password, salt),
         })
@@ -107,7 +106,6 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
         res.json(postDoc)
         // res.json(info);
     })
-
 })
 
 app.put('/post', uploadMiddleware.single('file'), async (req, res) => {
